@@ -18,5 +18,25 @@ export default function BreedList() {
     getDogBreeds();
   }, []);
 
-  return <div></div>;
+  return (
+    <div>
+      <h1>Dog Breeds</h1>
+      <ul>
+        {dogs.map(([breed, subBreeds]) => (
+          <li key={breed}>
+            <strong>{breed}</strong>
+            {subBreeds.length > 0 ? (
+              <ul>
+                {subBreeds.map((sub) => (
+                  <li key={sub}>{sub}</li>
+                ))}
+              </ul>
+            ) : (
+              "No subbreeds available"
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
