@@ -3,7 +3,7 @@ import type { DogBreedData } from "../types/data";
 import styles from "./BreedList.module.css";
 
 export default function BreedList() {
-  const [dogs, setDogs] = useState<[string, string[]][]>([]);
+  const [dogBreeds, setDogBreeds] = useState<[string, string[]][]>([]);
 
   const getDogBreeds = async () => {
     const res = await fetch("https://dog.ceo/api/breeds/list/all");
@@ -12,7 +12,7 @@ export default function BreedList() {
 
     // console.log("data : ", data);
     console.log("breed entries : ", breedEntries);
-    setDogs(breedEntries);
+    setDogBreeds(breedEntries);
   };
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function BreedList() {
     <div className="breed-list">
       <h1>Dog Breeds</h1>
       <ul className={styles.breeds}>
-        {dogs.map(([breed, subBreeds]) => (
+        {dogBreeds.map(([breed, subBreeds]) => (
           <li key={breed}>
             <strong>{breed}</strong>
             {subBreeds.length > 0 ? (
