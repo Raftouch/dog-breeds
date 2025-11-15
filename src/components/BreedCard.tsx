@@ -18,7 +18,7 @@ export default function BreedCard({ breed, subBreeds }: BreedCardProps) {
 
   useEffect(() => {
     getBreedImage();
-  }, []);
+  }, [breed]);
 
   return (
     <li>
