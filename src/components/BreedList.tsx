@@ -26,18 +26,6 @@ export default function BreedList() {
       <ul className={styles.breeds}>
         {dogBreeds.map(([breed, subBreeds]) => (
           <BreedCard key={breed} breed={breed} subBreeds={subBreeds} />
-          // <li key={breed}>
-          //   <strong>{breed}</strong>
-          //   {subBreeds.length > 0 ? (
-          //     <ul className={styles.subbreeds}>
-          //       {subBreeds.map((sub) => (
-          //         <li key={sub}>{sub}</li>
-          //       ))}
-          //     </ul>
-          //   ) : (
-          //     "No subbreeds available"
-          //   )}
-          // </li>
         ))}
       </ul>
     </div>
