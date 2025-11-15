@@ -7,7 +7,7 @@ type BreedCardProps = {
 
 export default function BreedCard({ breed, subBreeds }: BreedCardProps) {
   return (
-    <li key={breed}>
+    <li>
       <strong>{breed}</strong>
       {subBreeds.length > 0 ? (
         <ul className={styles.subbreeds}>

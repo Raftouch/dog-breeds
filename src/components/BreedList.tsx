@@ -25,7 +25,7 @@ export default function BreedList() {
       <h1>Dog Breeds</h1>
       <ul className={styles.breeds}>
         {dogBreeds.map(([breed, subBreeds]) => (
-          <BreedCard breed={breed} subBreeds={subBreeds} />
+          <BreedCard key={breed} breed={breed} subBreeds={subBreeds} />
           // <li key={breed}>
           //   <strong>{breed}</strong>
           //   {subBreeds.length > 0 ? (
