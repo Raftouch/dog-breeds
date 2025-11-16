@@ -15,12 +15,16 @@ export default function BreedCard({ breed, subBreeds }: BreedCardProps) {
       const res = await fetch(
         `https://dog.ceo/api/breed/${breed}/images/random`
       );
+
+      if (!res.ok) throw new Error("Failed to fetch breed images");
+
       const data: ImageData = await res.json();
 
       data.status === "success"
         ? setBreedImage(data.message)
         : setBreedImage(null);
     } catch (error) {
+      console.error(error);
       setBreedImage(null);
     }
   };
