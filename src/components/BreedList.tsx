@@ -7,10 +7,19 @@ export default function BreedList() {
   const [dogBreeds, setDogBreeds] = useState<[string, string[]][]>([]);
 
   const getDogBreeds = async () => {
-    const res = await fetch("https://dog.ceo/api/breeds/list/all");
-    const data: DogBreedData = await res.json();
-    const breedEntries = Object.entries(data.message);
-    setDogBreeds(breedEntries);
+    try {
+      const res = await fetch("https://dog.ceo/api/breeds/list/all");
+
+      if (!res.ok) throw new Error("Failed to fetch breeds");
+
+      const data: DogBreedData = await res.json();
+      const breedEntries = Object.entries(data.message);
+
+      data.status === "success" ? setDogBreeds(breedEntries) : setDogBreeds([]);
+    } catch (error) {
+      console.error(error);
+      setDogBreeds([]);
+    }
   };
 
   useEffect(() => {
