@@ -1,15 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
 * {
   box-sizing: border-box;
 }
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: #333;
-  background-color: #fff;
+  --bg: #ffffff;
+  --text: #333;
+  --card-bg: #ffffff;
+  --subbreed-bg: #e2e2e2;
+  --border: #ddd;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -17,7 +21,17 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.dark-mode {
+  --bg: #1c1c1c;
+  --text: #fff;
+  --card-bg: #2a2a2a;
+  --subbreed-bg: #555;
+  --border: #555;
+}
+
 body {
+  background: var(--bg);
+  color: var(--text);
   margin: 0;
   display: flex;
   flex-direction: column;
