@@ -22,7 +22,16 @@ function App() {
   return (
     <div className={theme}>
       <button className="theme-toggler" onClick={handleTheme}>
-        Light Dark Mode
+        <span
+          className={`material-symbols-outlined ${isDarkMode ? "" : "active"}`}
+        >
+          light_mode
+        </span>
+        <span
+          className={`material-symbols-outlined ${isDarkMode ? "active" : ""}`}
+        >
+          dark_mode
+        </span>
       </button>
       <BreedList />
     </div>

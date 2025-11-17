@@ -47,3 +47,34 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
+
+.theme-toggler {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.theme-toggler:hover {
+  background: var(--subbreed-bg);
+}
+
+.theme-toggler span {
+  font-size: 1.8rem;
+  transition: color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+  color: var(--text);
+}
+
+.theme-toggler span.active {
+  color: var(--text);
+  transform: scale(1.2);
+}
+
+.theme-toggler span:not(.active) {
+  opacity: 0.4;
+}
