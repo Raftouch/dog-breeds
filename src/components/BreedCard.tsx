@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./BreedCard.module.css";
 import type { ImageData } from "../types/data";
+import { dogApi } from "../utils/api";
 
 type BreedCardProps = {
   breed: string;
@@ -12,9 +13,7 @@ export default function BreedCard({ breed, subBreeds }: BreedCardProps) {
 
   const getBreedImage = async () => {
     try {
-      const res = await fetch(
-        `https://dog.ceo/api/breed/${breed}/images/random`
-      );
+      const res = await fetch(`${dogApi}/breed/${breed}/images/random`);
 
       if (!res.ok) throw new Error("Failed to fetch breed images");
 

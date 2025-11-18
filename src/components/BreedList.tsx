@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import type { DogBreedData } from "../types/data";
 import styles from "./BreedList.module.css";
 import BreedCard from "./BreedCard";
+import { dogApi } from "../utils/api";
 
 export default function BreedList() {
   const [dogBreeds, setDogBreeds] = useState<[string, string[]][]>([]);
 
   const getDogBreeds = async () => {
     try {
-      const res = await fetch("https://dog.ceo/api/breeds/list/all");
+      const res = await fetch(`${dogApi}/breeds/list/all`);
 
       if (!res.ok) throw new Error("Failed to fetch breeds");
 
