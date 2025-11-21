@@ -9,7 +9,7 @@ export default function BreedList() {
 
   const getDogBreeds = async () => {
     try {
-      const res = await fetch(`${dogApi}/breeds/list/all`, { mode: "no-cors" });
+      const res = await fetch(`${dogApi}/breeds/list/all`);
 
       if (!res.ok) throw new Error("Failed to fetch breeds");
 

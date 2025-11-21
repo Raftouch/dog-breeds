@@ -13,9 +13,7 @@ export default function BreedCard({ breed, subBreeds }: BreedCardProps) {
 
   const getBreedImage = async () => {
     try {
-      const res = await fetch(`${dogApi}/breed/${breed}/images/random`, {
-        mode: "no-cors",
-      });
+      const res = await fetch(`${dogApi}/breed/${breed}/images/random`);
 
       if (!res.ok) throw new Error("Failed to fetch breed images");
 
