@@ -28,22 +28,24 @@ export default function BreedList() {
     getDogBreeds();
   }, []);
 
+  const filteredBreeds = dogBreeds.filter((breed) => {
+    return breed[0].toLowerCase().includes(search.toLowerCase());
+  });
+
   return (
     <>
       <div className={styles.searchBar}>
         <label>Search breed</label>
-        <input type="text" onChange={(e) => setSearch(e.target.value)} />
+        <input
+          type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
       </div>
       <ul className={styles.breeds}>
-        {dogBreeds
-          .filter((breed) => {
-            return search.toLowerCase() === ""
-              ? breed
-              : breed[0].toLowerCase().includes(search);
-          })
-          .map(([breed, subBreeds]) => (
-            <BreedCard key={breed} breed={breed} subBreeds={subBreeds} />
-          ))}
+        {filteredBreeds.map(([breed, subBreeds]) => (
+          <BreedCard key={breed} breed={breed} subBreeds={subBreeds} />
+        ))}
       </ul>
     </>
   );
