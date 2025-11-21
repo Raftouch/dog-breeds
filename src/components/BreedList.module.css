@@ -10,3 +10,10 @@
     margin: 0 auto;
     padding: 16px;
 }
+
+.searchBar {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 15px;
+}

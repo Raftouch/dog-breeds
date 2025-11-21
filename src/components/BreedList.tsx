@@ -30,7 +30,7 @@ export default function BreedList() {
 
   return (
     <>
-      <div>
+      <div className={styles.searchBar}>
         <label>Search breed</label>
         <input type="text" onChange={(e) => setSearch(e.target.value)} />
       </div>
