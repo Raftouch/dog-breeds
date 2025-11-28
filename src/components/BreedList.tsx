@@ -7,13 +7,13 @@ import { getDogBreeds } from "../api/dogBreeds";
 export default function BreedList() {
   const [search, setSearch] = useState("");
 
-  const { data, error, isLoading } = useQuery({
+  const { data, status, error } = useQuery({
     queryKey: ["dogBreeds"],
     queryFn: getDogBreeds,
   });
 
-  if (isLoading) return <>Loading...</>;
-  if (error instanceof Error) return <>{error.message}</>;
+  if (status === "pending") return <>Loading...</>;
+  if (status === "error" && error instanceof Error) return <>{error.message}</>;
 
   const breedEntries = data ? Object.entries(data.message) : [];
 
