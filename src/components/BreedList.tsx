@@ -52,7 +52,7 @@ export default function BreedList() {
         ))}
       </ul>
 
-      <div>
+      <div className={styles.pagination}>
         <button disabled={page === 1} onClick={toPrevPage}>
           Prev
         </button>
