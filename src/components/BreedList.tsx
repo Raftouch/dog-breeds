@@ -3,6 +3,7 @@ import styles from "./BreedList.module.css";
 import BreedCard from "./BreedCard";
 import { useQuery } from "@tanstack/react-query";
 import { getDogBreeds } from "../api/dogBreeds";
+import Pagination from "./Pagination";
 
 export default function BreedList() {
   const [search, setSearch] = useState("");
@@ -52,17 +53,12 @@ export default function BreedList() {
         ))}
       </ul>
 
-      <div className={styles.pagination}>
-        <button disabled={page === 1} onClick={toPrevPage}>
-          Prev
-        </button>
-        <span>
-          Page {page} / {totalPages}
-        </span>
-        <button disabled={page === totalPages} onClick={toNextPage}>
-          Next
-        </button>
-      </div>
+      <Pagination
+        page={page}
+        totalPages={totalPages}
+        onNext={toNextPage}
+        onPrev={toPrevPage}
+      />
     </>
   );
 }

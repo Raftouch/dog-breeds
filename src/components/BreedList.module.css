@@ -17,31 +17,3 @@
     justify-content: center;
     margin-bottom: 15px;
 }
-
-.pagination {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0;
-}
-
-.pagination button {
-  padding: 6px 12px;
-  background: var(--card-bg);
-  color: var(--text);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: 0.2s;
-}
-
-.pagination button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.pagination button:hover:not(:disabled) {
-  background: var(--subbreed-bg);
-}
