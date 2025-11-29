@@ -58,6 +58,10 @@ export default function BreedList() {
         totalPages={totalPages}
         onNext={toNextPage}
         onPrev={toPrevPage}
+        resultsPerPage={breedsPerPage}
+        totalResults={filteredBreeds.length}
+        setCurrentPage={setPage}
+        currentPage={page}
       />
     </>
   );

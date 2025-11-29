@@ -5,6 +5,10 @@ interface PaginationProps {
   totalPages: number;
   onNext: () => void;
   onPrev: () => void;
+  resultsPerPage: number;
+  totalResults: number;
+  setCurrentPage: (page: number) => void;
+  currentPage: number;
 }
 
 export default function Pagination({
@@ -12,17 +16,36 @@ export default function Pagination({
   totalPages,
   onNext,
   onPrev,
+  resultsPerPage,
+  totalResults,
+  setCurrentPage,
+  currentPage,
 }: PaginationProps) {
+  let pages = [];
+  for (let i = 1; i <= Math.ceil(totalResults / resultsPerPage); i++) {
+    pages.push(i);
+  }
+
   return (
     <div className={styles.pagination}>
       <button disabled={page === 1} onClick={onPrev}>
-        onPrev
+        Prev
       </button>
-      <span>
-        Page {page} / {totalPages}
-      </span>
+
+      {pages.map((p, index) => {
+        return (
+          <button
+            className={p === currentPage ? styles.active : ""}
+            key={index}
+            onClick={() => setCurrentPage(p)}
+          >
+            {p}
+          </button>
+        );
+      })}
+
       <button disabled={page === totalPages} onClick={onNext}>
-        onNext
+        Next
       </button>
     </div>
   );
