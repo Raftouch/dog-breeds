@@ -14,3 +14,5 @@ export type ImageData = {
   message: string;
   status: string;
 };
+
+export type PageItem = number | "...";
