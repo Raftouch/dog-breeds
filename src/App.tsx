@@ -34,7 +34,7 @@ function App() {
         </span>
       </button>
 
-      <h1>Dog Breeds</h1>
+      <h1>Woof Random 🐶</h1>
       <BreedList />
     </div>
   );
